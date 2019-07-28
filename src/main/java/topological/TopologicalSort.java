@@ -75,6 +75,9 @@ public class TopologicalSort {
     }
 
     public static void main(String[] args) {
+        /**
+         * 第一种方法的调试
+         */
         ArrayList<Task> tasks = new ArrayList<>();
         tasks.add(new Task("1","4"));
         tasks.add(new Task("1","2"));
@@ -84,6 +87,7 @@ public class TopologicalSort {
         tasks.add(new Task("4","5"));
         tasks.add(new Task("4","6"));
         tasks.add(new Task("5","6"));
+        //如果不给一个 null对应1 则无法计算1的入度为0打印 循环就不会开始
         tasks.add(new Task(null,"1"));
         Map<String, List<String>> ret = findMappings(tasks);
         Map<String, Integer> inDegreeMap = computeInDegree(ret);
